@@ -61,7 +61,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
     for(uint8_t y = 0; y < MATRIX_ROWS; y++) {
         for(uint8_t x = 0; x < MATRIX_COLS; x++) {
-            uint32_t colVal = 0; 
+            uint32_t colVal = 0;
             for (int8_t i = sizeof(layer_state_t) * 8 - 1; i >= 0; i--) {
                 // Layer 0 is always enabled.
                 if (i == 0 || colayers & (1UL << i)) {
@@ -89,8 +89,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 
 #define TG_NKRO MAGIC_TOGGLE_NKRO //Toggle 6KRO / NKRO mode
-
-keymap_config_t keymap_config;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
