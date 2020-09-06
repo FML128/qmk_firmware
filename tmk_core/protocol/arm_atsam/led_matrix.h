@@ -83,6 +83,10 @@ extern uint8_t gcr_desired;
 extern uint8_t gcr_breathe;
 extern uint8_t gcr_actual;
 extern uint8_t gcr_actual_last;
+extern uint8_t led_mfg_test_mode;
+
+#define LED_MFG_TEST_MODE_OFF 0
+#define LED_MFG_TEST_MODE_ON 1
 
 void gcr_compute(void);
 
@@ -128,6 +132,8 @@ typedef struct led_instruction_s {
     uint32_t id1;    // Bitwise id, IDs 32-63
     uint32_t id2;    // Bitwise id, IDs 64-95
     uint32_t id3;    // Bitwise id, IDs 96-127
+    uint32_t id4;    // Bitwise id, IDs 128-159
+    uint32_t id5;    // Bitwise id, IDs 160-191
     uint8_t  layer;
     uint8_t  r;
     uint8_t  g;
