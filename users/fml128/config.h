@@ -14,3 +14,8 @@
 #define MANUFACTURER        "FML128.ch"
 #define PRODUCT             "FMK128"
 #define DESCRIPTION         "FMK128"
+
+#define USB_POLLING_INTERVAL_MS 1
+
+#undef DEBOUNCE
+#define DEBOUNCE 0
