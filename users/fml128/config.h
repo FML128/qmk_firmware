@@ -15,6 +15,8 @@
 #define PRODUCT             "FMK128"
 #define DESCRIPTION         "FMK128"
 
+#define RGBLIGHT_SLEEP
+
 #define USB_POLLING_INTERVAL_MS 1
 
 #undef DEBOUNCE
