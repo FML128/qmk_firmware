@@ -72,7 +72,7 @@ void matrix_print(void) {
     print_matrix_header();
 
     for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row);
+        phex(row);
         print(": ");
         print_matrix_row(row);
         print("\n");
@@ -140,7 +140,7 @@ static void select_col(uint8_t col) {
 static void init_pins(void) {
     unselect_cols();
     for (uint8_t x = 0; x < MATRIX_ROWS; x++) {
-        setPinInputHigh(row_pins[x]);
+        setPinInput(row_pins[x]);
     }
 
     setPinInputHigh(E2);

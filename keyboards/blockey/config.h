@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Eucalyn
 #define PRODUCT         Blockey
+#define DESCRIPTION     A custom keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 10
@@ -165,6 +166,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*
  * MIDI options
  */
+
+/* Prevent use of disabled MIDI features in the keymap */
+//#define MIDI_ENABLE_STRICT 1
 
 /* enable basic MIDI features:
    - MIDI notes can be sent when in Music mode is on

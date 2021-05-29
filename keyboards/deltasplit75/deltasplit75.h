@@ -1,7 +1,8 @@
-#pragma once
+#ifndef DELTASPLIT75_H
+#define DELTASPLIT75_H
+
+#include "v2.h"
 
 #include "quantum.h"
 
-#ifdef KEYBOARD_deltasplit75_v2
-#    include "v2.h"
 #endif

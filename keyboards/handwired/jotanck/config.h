@@ -8,6 +8,7 @@
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Jotix
 #define PRODUCT         Jotanck
+#define DESCRIPTION     A Jotantastic compact ortholinear keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 4

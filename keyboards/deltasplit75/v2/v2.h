@@ -1,4 +1,5 @@
-#pragma once
+#ifndef V2_H
+#define V2_H
 
 #include "deltasplit75.h"
 
@@ -55,3 +56,5 @@
 		{ K120,  K121,  K122,  K123,  KC_NO, KC_NO, K126,  K127}, \
 		{ KC_NO, KC_NO, K132,  K133,  K134,  K135,  K136,  K137} \
 	}
+
+#endif

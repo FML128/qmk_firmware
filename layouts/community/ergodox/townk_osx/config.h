@@ -16,8 +16,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef CONFIG_H
+#define CONFIG_H
 
+#include QMK_KEYBOARD_CONFIG_H
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
@@ -38,3 +40,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define DEBUG_MATRIX_SCAN_RATE
 #define ONESHOT_TAP_TOGGLE 2
 #define ONESHOT_TIMEOUT 3000
+
+#endif

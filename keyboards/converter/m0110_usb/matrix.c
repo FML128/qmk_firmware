@@ -93,7 +93,7 @@ uint8_t matrix_scan(void)
     }
 
     if (debug_enable) {
-        print("["); print_hex8(key); print("]\n");
+        print("["); phex(key); print("]\n");
     }
     
     matrix_scan_quantum();

@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include "protocol/serial.h"
 #include "timer.h"
+#include "pincontrol.h"
 
 
 /*
@@ -95,27 +96,27 @@ void pins_init(void) {
  // set pins for pullups, Rts , power &etc. 
 
     //print ("pins setup\n");
-    setPinOutput(VCC_PIN);
-    writePinLow(VCC_PIN);
+    pinMode(VCC_PIN, PinDirectionOutput);
+    digitalWrite(VCC_PIN, PinLevelLow);
 
 #if ( HANDSPRING == 0)
 
 #ifdef CY835
-    setPinOutput(GND_PIN);
-    writePinLow(GND_PIN);
+    pinMode(GND_PIN, PinDirectionOutput);
+    digitalWrite(GND_PIN, PinLevelLow);
 
-    setPinOutput(PULLDOWN_PIN);
-    writePinLow(PULLDOWN_PIN);
+    pinMode(PULLDOWN_PIN, PinDirectionOutput);
+    digitalWrite(PULLDOWN_PIN, PinLevelLow);
 #endif
 
-    setPinInput(DCD_PIN);
-    setPinInput(RTS_PIN);
+    pinMode(DCD_PIN, PinDirectionInput);
+    pinMode(RTS_PIN, PinDirectionInput); 
 #endif
 
 /* check that the other side isn't powered up. 
-    test=readPin(DCD_PIN);
+    test=digitalRead(DCD_PIN);
     xprintf("b%02X:", test);
-    test=readPin(RTS_PIN);
+    test=digitalRead(RTS_PIN);
     xprintf("%02X\n", test);
 */
  
@@ -128,20 +129,20 @@ uint8_t rts_reset(void) {
 // On boot, we keep rts as input, then switch roles here
 // on leaving sleep, we toggle the same way
 
-    firstread=readPin(RTS_PIN);
+    firstread=digitalRead(RTS_PIN);
    // printf("r%02X:", firstread);
 
-    setPinOutput(RTS_PIN);
+    pinMode(RTS_PIN, PinDirectionOutput);
 
-    if (firstread) {
-        writePinLow(RTS_PIN);
+    if (firstread == PinLevelHigh) {
+        digitalWrite(RTS_PIN, PinLevelLow);
     } 
      _delay_ms(10);
-    writePinHigh(RTS_PIN);
+    digitalWrite(RTS_PIN, PinLevelHigh);  
     
 
 /* the future is Arm 
-    if (!palReadPad(RTS_PIN_IOPRT))
+    if (palReadPad(RTS_PIN_IOPRT) == PinLevelLow)
   {
     _delay_ms(10);
     palSetPadMode(RTS_PINn_IOPORT, PinDirectionOutput_PUSHPULL);
@@ -223,9 +224,9 @@ uint8_t handspring_handshake(void) {
 }
 
 uint8_t handspring_reset(void) {
-    writePinLow(VCC_PIN);
+    digitalWrite(VCC_PIN, PinLevelLow);
     _delay_ms(5);
-    writePinHigh(VCC_PIN);
+    digitalWrite(VCC_PIN, PinLevelHigh);
 
     if ( handspring_handshake() ) {
         last_activity = timer_read();
@@ -249,7 +250,7 @@ void matrix_init(void)
 #endif
 
     print("power up\n");
-    writePinHigh(VCC_PIN);
+    digitalWrite(VCC_PIN, PinLevelHigh);
 
     // wait for DCD strobe from keyboard - it will do this 
     // up to 3 times, then the board needs the RTS toggled to try again
@@ -264,7 +265,7 @@ void matrix_init(void)
     }
 
 #else  /// Palm / HP  device with DCD
-    while( !readPin(DCD_PIN) ) {;} 
+    while( digitalRead(DCD_PIN) != PinLevelHigh ) {;} 
     print("dcd\n");
 
     rts_reset(); // at this point the keyboard should think all is well. 
@@ -381,8 +382,8 @@ void matrix_print(void)
 {
     print("\nr/c 01234567\n");
     for (uint8_t row = 0; row < matrix_rows(); row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse8(matrix_get_row(row));
+        phex(row); print(": ");
+        pbin_reverse(matrix_get_row(row));
         print("\n");
     }
 }

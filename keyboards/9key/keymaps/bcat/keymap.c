@@ -5,8 +5,11 @@ enum layer {
     LAYER_FUNCTION,
 };
 
+/* Switch to function layer when held. */
 #define LY_FUNC MO(LAYER_FUNCTION)
-#define KY_LOCK LCA(KC_L)  /* Cinnamon lock screen */
+
+/* Send Ctrl+Alt+L (Cinnamon screen lock shortcut) when pressed. */
+#define KY_LOCK LCA(KC_L)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LAYER_DEFAULT] = LAYOUT(

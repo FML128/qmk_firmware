@@ -1,10 +1,12 @@
-#pragma once
+#ifndef ERGO42_H
+#define ERGO42_H
 
 #include "quantum.h"
 
 #ifdef KEYBOARD_ergo42_rev1
     #include "rev1.h"
 #endif
+
 
 // Used to create a keymap using only KC_ prefixed keys
 #define LAYOUT_kc_ortho_4x14( \
@@ -21,3 +23,5 @@
     )
 
 #define LAYOUT_kc LAYOUT_kc_ortho_4x14
+
+#endif

@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#pragma once
-
+#ifndef VISUALIZER_H
+#define VISUALIZER_H
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
@@ -97,8 +97,8 @@ typedef struct visualizer_state_t {
     uint32_t current_lcd_color;
     uint32_t prev_lcd_color;
 #ifdef LCD_ENABLE
-    gFont font_fixed5x8;
-    gFont font_dejavusansbold12;
+    font_t font_fixed5x8;
+    font_t font_dejavusansbold12;
 #endif
 } visualizer_state_t;
 
@@ -152,3 +152,5 @@ void user_visualizer_suspend(visualizer_state_t* state);
 void initialize_user_visualizer(visualizer_state_t* state);
 // Called when the computer resumes from a suspend
 void user_visualizer_resume(visualizer_state_t* state);
+
+#endif /* VISUALIZER_H */

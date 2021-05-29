@@ -16,8 +16,7 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   DVORAK,
   LOWER,
-  RAISE,
-  ADJUST
+  RAISE
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

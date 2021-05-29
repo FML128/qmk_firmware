@@ -24,7 +24,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x0000
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    IBM
-#define PRODUCT         IBM Model M 122 key
+#define PRODUCT         IBM Model M 122 key 
+#define DESCRIPTION     Mapping by github.com/lukexorz
 
 /* key matrix size */
 #define MATRIX_ROWS 8
@@ -102,8 +103,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
-#define AUDIO_PIN_ALT B6
-#define AUDIO_PIN C6
+#define B6_AUDIO
+#define C6_AUDIO
 
 /* control how magic key switches layers */
 //#define MAGIC_KEY_SWITCH_LAYER_WITH_FKEYS  true
@@ -162,6 +163,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*
  * MIDI options
  */
+
+/* Prevent use of disabled MIDI features in the keymap */
+//#define MIDI_ENABLE_STRICT 1
 
 /* enable basic MIDI features:
    - MIDI notes can be sent when in Music mode is on

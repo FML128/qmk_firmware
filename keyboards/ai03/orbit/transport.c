@@ -18,7 +18,7 @@
   extern backlight_config_t backlight_config;
 #endif
 
-#if defined(USE_I2C)
+#if defined(USE_I2C) || defined(EH)
 
 #include "i2c.h"
 

@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #define TAPPING_LAYER_TERM 150 // Custom LT Tapping term
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+uint16_t get_tapping_term(uint16_t keycode) {
   switch (keycode) {
     case KC_BSLO:
       return TAPPING_LAYER_TERM;

@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    You
 #define PRODUCT         obelus
+#define DESCRIPTION     4x4 QMK test platform
 
 /* key matrix size */
 #define MATRIX_ROWS 4
@@ -154,7 +155,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef AUDIO_ENABLE
   #define AUDIO_VOICES
-  #define AUDIO_PIN C6
+  #define C6_AUDIO
   #define STARTUP_SONG SONG(STARTUP_SOUND)
 #endif
 

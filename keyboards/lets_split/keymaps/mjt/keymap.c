@@ -152,7 +152,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case QWERTY:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_qwerty);
+          PLAY_NOTE_ARRAY(tone_qwerty, false, 0);
         #endif
         persistent_default_layer_set(1UL<<_QWERTY);
       }
@@ -161,7 +161,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case COLEMAK:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_colemak);
+          PLAY_NOTE_ARRAY(tone_colemak, false, 0);
         #endif
         persistent_default_layer_set(1UL<<_COLEMAK);
       }
@@ -170,7 +170,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DVORAK:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_dvorak);
+          PLAY_NOTE_ARRAY(tone_dvorak, false, 0);
         #endif
         persistent_default_layer_set(1UL<<_DVORAK);
       }

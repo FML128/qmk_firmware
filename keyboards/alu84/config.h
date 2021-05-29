@@ -25,6 +25,7 @@
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    MECHKEYS
 #define PRODUCT         ALU84
+#define DESCRIPTION     75% keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 6

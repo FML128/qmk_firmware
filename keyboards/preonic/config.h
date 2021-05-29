@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x6061
 #define MANUFACTURER    OLKB
 #define PRODUCT         Preonic
+#define DESCRIPTION     A compact ortholinear keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -41,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define QMK_SPEAKER C6
 
 #define AUDIO_VOICES
-#define AUDIO_PIN C6
+#define C6_AUDIO
 
 #define BACKLIGHT_PIN B7
 

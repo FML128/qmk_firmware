@@ -9,7 +9,7 @@ to a final go with this.
 
 I'm using MOD_TAP quite a bit in this keymap. On all layers, R4 pinky keys use mod-tap and are SHIFT when held
 and their normal keys when tapped. In addition, ESC and TAB are also set as Ctrl and ALT respectively when held,
-and Enter/ALT on the right thumb key for all alpha layers.
+and Enter/ALT on the right thumb key for all layers.
 
 I've enabled persistent keymaps for Qwerty, Dvorak and Colemak layers, similar to the default Planck layouts.
 
@@ -44,7 +44,7 @@ Control.
 	|  Esc |  Tab |  GUI | LOWER| BkSp |------'`------|  Spc | RAISE|   -  |   '  |   \  |
 	`----------------------------------'              `----------------------------------'
 	 
-### Layer 2: Colemak layer
+### Keymap 2: Colemak layer
 
 	,----------------------------------.              ,----------------------------------.
 	|   Q  |   W  |   F  |   P  |   G  |              |   J  |   L  |   U  |   Y  |   L  |
@@ -56,7 +56,7 @@ Control.
 	|  Esc |  Tab |  GUI | LOWER| BkSp |------'`------|  Spc | RAISE|   -  |   '  |   \  |
 	`----------------------------------'              `----------------------------------'
 
-### Layer 3: Dvorak for Mac layer
+### Keymap 3: Dvorak for Mac layout
 
 	,----------------------------------.              ,----------------------------------.
 	|   '  |   ,  |   .  |   P  |   Y  |              |   F  |   G  |   C  |   R  |   L  |
@@ -68,7 +68,7 @@ Control.
 	|  Esc |  Tab |  GUI | LOWER| BkSp |------'`------|  Spc | RAISE|   -  |   /  |   \  |
 	`----------------------------------'              `----------------------------------'
 
-### Layer 4: LOWER layer
+### Keymap 4: LOWER layer
 
 	,----------------------------------.              ,----------------------------------.
 	|   !  |   @  |   #  |   $  |   %  |              |   ^  |   &  |   *  |   (  |   )  |
@@ -77,11 +77,11 @@ Control.
 	|------+------+------+------+------|------.,------|------+------+------+------+------|
 	|      | Left | Down | Right| End  |      ||      | PgUp | Mute | Vol- | Vol+ |      |
 	|------+------+------+------+------|      ||      |------+------+------+------+------|
-	|   ~  |      |      |      | Del  |------'`------| Ins  |      |      |      |MACLCK|
+	|   ~  |      |      |      | Del  |------'`------| Ins  |      |      |      |      |
 	`----------------------------------'              `----------------------------------'
 
 
-### Layer 5: RAISE layer
+### Keymap 5: RAISE layer
 
 	,----------------------------------.              ,----------------------------------.
 	|   1  |   2  |   3  |   4  |   5  |              |   6  |   7  |   8  |   9  |   0  |
@@ -90,10 +90,10 @@ Control.
 	|------+------+------+------+------|------.,------|------+------+------+------+------|
 	|      | Left | Down | Right| End  |      ||      | PgUp | Prev | Play | Next |      |
 	|------+------+------+------+------|      ||      |------+------+------+------+------|
-	|   `  |      |      |      | Del  |------'`------| Ins  |      |      |      |MACLCK|
+	|   `  |      |      |      | Del  |------'`------| Ins  |      |      |      |      |
 	`----------------------------------'              `----------------------------------'
 
-### Layer 6: ADJUST layer
+### Keymap 6: ADJUST layer
 
 	,----------------------------------.              ,----------------------------------.
 	|  F1  |  F2  |  F3  |  F4  |  F5  |              |  F6  |  F7  |  F8  |  F9  | F10  |

@@ -14,7 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#ifndef PROCESS_AUTO_SHIFT_H
+#define PROCESS_AUTO_SHIFT_H
 
 #include "quantum.h"
 
@@ -24,10 +25,9 @@
 
 bool process_auto_shift(uint16_t keycode, keyrecord_t *record);
 
-void     autoshift_enable(void);
-void     autoshift_disable(void);
-void     autoshift_toggle(void);
-bool     get_autoshift_state(void);
-uint16_t get_autoshift_timeout(void);
-void     set_autoshift_timeout(uint16_t timeout);
-void     autoshift_matrix_scan(void);
+void autoshift_enable(void);
+void autoshift_disable(void);
+void autoshift_toggle(void);
+bool autoshift_state(void);
+
+#endif

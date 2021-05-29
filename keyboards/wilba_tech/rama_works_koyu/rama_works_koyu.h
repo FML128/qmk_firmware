@@ -18,7 +18,7 @@
 
 #include "quantum.h"
 #include "keyboards/wilba_tech/wt_rgb_backlight_keycodes.h"
-#include "via.h"
+#include "keyboards/wilba_tech/via_keycodes.h"
 
 #define ____ KC_NO
 

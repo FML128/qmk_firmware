@@ -10,6 +10,7 @@
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    pepaslabs
 #define PRODUCT         hexon38
+#define DESCRIPTION     "A handmade non-split ergonomic 38-key keyboard, inspired by the lil38.  See https://github.com/pepaslabs/hexon38."
 
 /* key matrix size */
 #define MATRIX_ROWS 4
@@ -48,3 +49,6 @@
 
 /* Locking resynchronize hack */
 //#define LOCKING_RESYNC_ENABLE
+
+/* prevent stuck modifiers */
+//#define PREVENT_STUCK_MODIFIERS

@@ -21,9 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define VENDOR_ID       0x20A0
 #define PRODUCT_ID      0x422D
-#define DEVICE_VER      0x0200
 #define MANUFACTURER    Panc Interactive
-#define PRODUCT         Panc60
+#define PRODUCT         panc60
 
 #define RGBLED_NUM 12
 
@@ -37,9 +36,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DIODE_DIRECTION COL2ROW
 #define DEBOUNCE 5
 
-#define LED_CAPS_LOCK_PIN D1
-
-#define BACKLIGHT_PIN D4
-#define BACKLIGHT_LEVELS 3
-
+#define BACKLIGHT_LEVELS 1
 #define RGBLIGHT_ANIMATIONS

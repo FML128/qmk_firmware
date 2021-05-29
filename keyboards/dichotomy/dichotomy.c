@@ -1,7 +1,12 @@
 #include "dichotomy.h"
 
+void uart_init(void) {
+	SERIAL_UART_INIT();
+}
+
 void pointing_device_task(void){
 	/*report_mouse_t currentReport = {};
+    SERIAL_UART_INIT();
     uint32_t timeout = 0;
 
     //the m character requests the RF slave to send the mouse report
@@ -58,13 +63,10 @@ void pointing_device_task(void){
 }
 
 void led_init(void) {
-    setPinOutput(D1);
-    setPinOutput(F5);
-    setPinOutput(F6);
-
-	writePinHigh(D1);
-    writePinHigh(F5);
-    writePinHigh(F6);
+	DDRD  |= (1<<1);
+	PORTD |= (1<<1);
+	DDRF  |= (1<<4) | (1<<5);
+	PORTF |= (1<<4) | (1<<5);
 }
 
 
@@ -72,5 +74,16 @@ void matrix_init_kb(void) {
 	// put your keyboard start-up code here
 	// runs once when the firmware starts up
 	matrix_init_user();
+	uart_init();
 	led_init();
+}
+
+void matrix_scan_kb(void) {
+	// put your looping keyboard code here
+	// runs every cycle (a lot)
+	matrix_scan_user();
+}
+
+void led_set_kb(uint8_t usb_led) {
+
 }

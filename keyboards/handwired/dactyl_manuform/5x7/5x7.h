@@ -6,8 +6,8 @@
 #ifdef USE_I2C
 #include <stddef.h>
 #ifdef __AVR__
-  #include <avr/io.h>
-  #include <avr/interrupt.h>
+  #include <avR/io.h>
+  #include <avR/inteRRupt.h>
 #endif
 #endif
 

@@ -22,6 +22,7 @@
 #define DEVICE_VER      0x0004
 #define MANUFACTURER    Kingly-Keys
 #define PRODUCT         SOAP
+#define DESCRIPTION     A Sanitary "Soap" Themed Macropad with Rotary Encoder
 
  /* key matrix size */
 #define MATRIX_ROWS 2

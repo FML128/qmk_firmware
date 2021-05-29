@@ -21,11 +21,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x4B36 // K6 - ok60
+#define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x6060
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    OK60
 #define PRODUCT         OK60
+#define DESCRIPTION     qmk keyboard firmware for OK60
 
 /* key matrix size */
 #define MATRIX_ROWS 5

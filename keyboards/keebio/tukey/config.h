@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0100
 #define MANUFACTURER    Keebio
 #define PRODUCT         Tukey
+#define DESCRIPTION     1x2 board for the Big Switch
 
 /* key matrix size */
 #define MATRIX_ROWS 1

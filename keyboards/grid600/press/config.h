@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0005
 #define MANUFACTURER    Grid
 #define PRODUCT         PRESS
+#define DESCRIPTION     Top module for Grid 600
 
 /* key matrix size */
 #define MATRIX_ROWS 1

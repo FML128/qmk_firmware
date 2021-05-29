@@ -15,7 +15,10 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef KEYMAP_CONFIG_H
+#define KEYMAP_CONFIG_H
+
+#include QMK_KEYBOARD_CONFIG_H
 
 #ifndef RGB_DI_PIN
     #define RGB_DI_PIN F4
@@ -24,4 +27,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_HUE_STEP 8
     #define RGBLIGHT_SAT_STEP 8
     #define RGBLIGHT_VAL_STEP 8
+#endif
+
 #endif

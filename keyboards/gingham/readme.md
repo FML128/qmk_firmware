@@ -4,17 +4,16 @@
 
 A 60% keyboard with only through hole components.   
 
-Keyboard Maintainer: [Yiancar](http://yiancar-designs.com/) and on [GitHub](https://github.com/yiancar)  
+Keyboard Maintainer: [Yiancar](http://yiancar-designs.com/) and on [github](https://github.com/yiancar)  
 Hardware Supported: ATMEGA328p with vusb [PCB](https://github.com/yiancar/gingham_pcb)  
 Hardware Availability: https://yiancar-designs.com/, https://novelkeys.xyz, https://mechboards.co.uk/  
 
 Make example for this keyboard (after setting up your build environment):
-
     make gingham:default
 
-Flashing example for this keyboard:
-
-    make gingham:default:flash
+Flash firmware:
+    // In bootloader mode
+    make gingham:default:program
 
 Bootloader:
 use usbasploader HSGW's my repository.

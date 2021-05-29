@@ -1,5 +1,5 @@
 /*
-Copyright 2018 Massdrop Inc.
+Copyright 2019 Massdrop Inc.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,61 +15,60 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _D51_UTIL_H_
-#define _D51_UTIL_H_
+#pragma once
 
 #include "samd51j18a.h"
 
 /* Debug LED */
 #if DEBUG_LED_ENABLE == 1
-#    define DBG_LED_ENA PORT->Group[DEBUG_LED_PORT].DIRSET.reg = (1 << DEBUG_LED_PIN)
-#    define DBG_LED_DIS PORT->Group[DEBUG_LED_PORT].DIRCLR.reg = (1 << DEBUG_LED_PIN)
-#    define DBG_LED_ON PORT->Group[DEBUG_LED_PORT].OUTSET.reg = (1 << DEBUG_LED_PIN)
-#    define DBG_LED_OFF PORT->Group[DEBUG_LED_PORT].OUTCLR.reg = (1 << DEBUG_LED_PIN)
+#define DBG_LED_ENA PORT->Group[DEBUG_LED_PORT].DIRSET.reg = (1 << DEBUG_LED_PIN)
+#define DBG_LED_DIS PORT->Group[DEBUG_LED_PORT].DIRCLR.reg = (1 << DEBUG_LED_PIN)
+#define DBG_LED_ON  PORT->Group[DEBUG_LED_PORT].OUTSET.reg = (1 << DEBUG_LED_PIN)
+#define DBG_LED_OFF PORT->Group[DEBUG_LED_PORT].OUTCLR.reg = (1 << DEBUG_LED_PIN)
 #else
-#    define DBG_LED_ENA
-#    define DBG_LED_DIS
-#    define DBG_LED_ON
-#    define DBG_LED_OFF
+#define DBG_LED_ENA
+#define DBG_LED_DIS
+#define DBG_LED_ON
+#define DBG_LED_OFF
 #endif
 
 /* Debug Port 1 */
 #if DEBUG_PORT1_ENABLE == 1
-#    define DBG_1_ENA PORT->Group[DEBUG_PORT1_PORT].DIRSET.reg = (1 << DEBUG_PORT1_PIN)
-#    define DBG_1_DIS PORT->Group[DEBUG_PORT1_PORT].DIRCLR.reg = (1 << DEBUG_PORT1_PIN)
-#    define DBG_1_ON PORT->Group[DEBUG_PORT1_PORT].OUTSET.reg = (1 << DEBUG_PORT1_PIN)
-#    define DBG_1_OFF PORT->Group[DEBUG_PORT1_PORT].OUTCLR.reg = (1 << DEBUG_PORT1_PIN)
+#define DBG_1_ENA PORT->Group[DEBUG_PORT1_PORT].DIRSET.reg = (1 << DEBUG_PORT1_PIN)
+#define DBG_1_DIS PORT->Group[DEBUG_PORT1_PORT].DIRCLR.reg = (1 << DEBUG_PORT1_PIN)
+#define DBG_1_ON  PORT->Group[DEBUG_PORT1_PORT].OUTSET.reg = (1 << DEBUG_PORT1_PIN)
+#define DBG_1_OFF PORT->Group[DEBUG_PORT1_PORT].OUTCLR.reg = (1 << DEBUG_PORT1_PIN)
 #else
-#    define DBG_1_ENA
-#    define DBG_1_DIS
-#    define DBG_1_ON
-#    define DBG_1_OFF
+#define DBG_1_ENA
+#define DBG_1_DIS
+#define DBG_1_ON
+#define DBG_1_OFF
 #endif
 
 /* Debug Port 2 */
 #if DEBUG_PORT2_ENABLE == 1
-#    define DBG_2_ENA PORT->Group[DEBUG_PORT2_PORT].DIRSET.reg = (1 << DEBUG_PORT2_PIN)
-#    define DBG_2_DIS PORT->Group[DEBUG_PORT2_PORT].DIRCLR.reg = (1 << DEBUG_PORT2_PIN)
-#    define DBG_2_ON PORT->Group[DEBUG_PORT2_PORT].OUTSET.reg = (1 << DEBUG_PORT2_PIN)
-#    define DBG_2_OFF PORT->Group[DEBUG_PORT2_PORT].OUTCLR.reg = (1 << DEBUG_PORT2_PIN)
+#define DBG_2_ENA PORT->Group[DEBUG_PORT2_PORT].DIRSET.reg = (1 << DEBUG_PORT2_PIN)
+#define DBG_2_DIS PORT->Group[DEBUG_PORT2_PORT].DIRCLR.reg = (1 << DEBUG_PORT2_PIN)
+#define DBG_2_ON  PORT->Group[DEBUG_PORT2_PORT].OUTSET.reg = (1 << DEBUG_PORT2_PIN)
+#define DBG_2_OFF PORT->Group[DEBUG_PORT2_PORT].OUTCLR.reg = (1 << DEBUG_PORT2_PIN)
 #else
-#    define DBG_2_ENA
-#    define DBG_2_DIS
-#    define DBG_2_ON
-#    define DBG_2_OFF
+#define DBG_2_ENA
+#define DBG_2_DIS
+#define DBG_2_ON
+#define DBG_2_OFF
 #endif
 
 /* Debug Port 3 */
 #if DEBUG_PORT3_ENABLE == 1
-#    define DBG_3_ENA PORT->Group[DEBUG_PORT3_PORT].DIRSET.reg = (1 << DEBUG_PORT3_PIN)
-#    define DBG_3_DIS PORT->Group[DEBUG_PORT3_PORT].DIRCLR.reg = (1 << DEBUG_PORT3_PIN)
-#    define DBG_3_ON PORT->Group[DEBUG_PORT3_PORT].OUTSET.reg = (1 << DEBUG_PORT3_PIN)
-#    define DBG_3_OFF PORT->Group[DEBUG_PORT3_PORT].OUTCLR.reg = (1 << DEBUG_PORT3_PIN)
+#define DBG_3_ENA PORT->Group[DEBUG_PORT3_PORT].DIRSET.reg = (1 << DEBUG_PORT3_PIN)
+#define DBG_3_DIS PORT->Group[DEBUG_PORT3_PORT].DIRCLR.reg = (1 << DEBUG_PORT3_PIN)
+#define DBG_3_ON  PORT->Group[DEBUG_PORT3_PORT].OUTSET.reg = (1 << DEBUG_PORT3_PIN)
+#define DBG_3_OFF PORT->Group[DEBUG_PORT3_PORT].OUTCLR.reg = (1 << DEBUG_PORT3_PIN)
 #else
-#    define DBG_3_ENA
-#    define DBG_3_DIS
-#    define DBG_3_ON
-#    define DBG_3_OFF
+#define DBG_3_ENA
+#define DBG_3_DIS
+#define DBG_3_ON
+#define DBG_3_OFF
 #endif
 
 void dbg_print(uint32_t x);
@@ -80,7 +79,7 @@ void debug_code_disable(void);
 
 #ifdef DEBUG_BOOT_TRACING_ENABLE
 
-#    define DBGC(n) debug_code = n
+#define DBGC(n) debug_code = n
 
 extern volatile uint32_t debug_code;
 
@@ -144,20 +143,20 @@ enum debug_code_list {
     DC_CLK_OSC_INIT_DPLL_WAIT_CLKRDY,
     DC_CLK_OSC_INIT_GCLK_SYNC_GENCTRL0,
     DC_CLK_OSC_INIT_COMPLETE,
-    DC_SPI_INIT_BEGIN,
-    DC_SPI_WRITE_DRE,
-    DC_SPI_WRITE_TXC_1,
-    DC_SPI_WRITE_TXC_2,
-    DC_SPI_SYNC_ENABLING,
-    DC_SPI_INIT_COMPLETE,
+    DC_SPI_EXP_INIT_BEGIN,
+    DC_SPI_EXP_WRITE_DRE,
+    DC_SPI_EXP_WRITE_TXC_1,
+    DC_SPI_EXP_WRITE_TXC_2,
+    DC_SPI_EXP_SYNC_ENABLING,
+    DC_SPI_EXP_INIT_COMPLETE,
     DC_PORT_DETECT_INIT_BEGIN,
     DC_PORT_DETECT_INIT_FAILED,
     DC_PORT_DETECT_INIT_COMPLETE,
     DC_USB_RESET_BEGIN,
     DC_USB_RESET_COMPLETE,
-    DC_USB_SET_HOST_BY_VOLTAGE_BEGIN,
-    DC_USB_SET_HOST_5V_LOW_WAITING,
-    DC_USB_SET_HOST_BY_VOLTAGE_COMPLETE,
+    DC_USB_DETECT_HOST_BEGIN,
+    DC_USB_DETECT_HOST_5V_LOW_WAITING,
+    DC_USB_DETECT_HOST_COMPLETE,
     DC_USB_CONFIGURE_BEGIN,
     DC_USB_CONFIGURE_GET_SERIAL,
     DC_USB_CONFIGURE_COMPLETE,
@@ -166,14 +165,14 @@ enum debug_code_list {
     DC_USB_WRITE2422_BLOCK_COMPLETE,
     DC_ADC0_CLOCK_INIT_BEGIN,
     DC_ADC0_CLOCK_INIT_COMPLETE,
-    DC_ADC0_INIT_BEGIN,
-    DC_ADC0_SWRST_SYNCING_1,
-    DC_ADC0_SWRST_SYNCING_2,
-    DC_ADC0_AVGCTRL_SYNCING_1,
-    DC_ADC0_AVGCTRL_SYNCING_2,
-    DC_ADC0_SAMPCTRL_SYNCING_1,
-    DC_ADC0_ENABLE_SYNCING_1,
-    DC_ADC0_INIT_COMPLETE,
+    DC_ADC_INIT_BEGIN,
+    DC_ADC_SWRST_SYNCING_1,
+    DC_ADC_SWRST_SYNCING_2,
+    DC_ADC_GET_AVGCTRL_SYNCING_1,
+    DC_ADC_GET_AVGCTRL_SYNCING_2,
+    DC_ADC_GET_SAMPCTRL_SYNCING_1,
+    DC_ADC_ENABLE_SYNCING_1,
+    DC_ADC_INIT_COMPLETE,
     DC_I2C0_INIT_BEGIN,
     DC_I2C0_INIT_SYNC_ENABLING,
     DC_I2C0_INIT_SYNC_SYSOP,
@@ -211,14 +210,23 @@ enum debug_code_list {
     DC_MAIN_UDC_START_COMPLETE,
     DC_MAIN_CDC_INIT_BEGIN,
     DC_MAIN_CDC_INIT_COMPLETE,
+    DC_SPI_KC_INIT_BEGIN,
+    DC_SPI_KC_WRITE_DRE,
+    DC_SPI_KC_WRITE_TXC_1,
+    DC_SPI_KC_WRITE_TXC_2,
+    DC_SPI_KC_SYNC_ENABLING,
+    DC_SPI_KC_INIT_COMPLETE,
+    DC_ADC1_CLOCK_INIT_BEGIN,
+    DC_ADC1_CLOCK_INIT_COMPLETE,
+    DC_ADC_GET_INPUTCTRL_SYNCING_1,
+    DC_ADC_GET_REFCTRL_SYNCING_1,
+    DC_ADC_GET_SWTRIG_SYNCING_1,
+    DC_ADC_GET_INTFLAG_RESRDY_WAITING_1
     /* Never change the order of error codes! Only add codes to end! */
 };
 
 #else
 
-#    define DBGC(n) \
-        {}
+#define DBGC(n) {}
 
-#endif  // DEBUG_BOOT_TRACING_ENABLE
-
-#endif  //_D51_UTIL_H_
+#endif //DEBUG_BOOT_TRACING_ENABLE

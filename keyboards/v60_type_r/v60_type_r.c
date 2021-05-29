@@ -18,7 +18,13 @@
 #include "quantum.h"
 
 // if we've got an RGB underglow!
-#ifdef RGBLIGHT_ENABLE
+#ifdef V60_POLESTAR
+
+#include "rgblight.h"
+
+#include <avr/pgmspace.h>
+
+#include "action_layer.h"
 
 #define SOFTPWM_LED_TIMER_TOP F_CPU/(256*64)
 
@@ -100,35 +106,35 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
 
 void rgb_timer_init(void) {
-    /* Timer3 setup */
+    /* Timer1 setup */
     /* CTC mode */
-    TCCR3B |= _BV(WGM32);
-    /* Clock select: clk/8 */
-    TCCR3B |= _BV(CS30);
+    TCCR1B |= (1<<WGM12);
+    /* Clock selelct: clk/8 */
+    TCCR1B |= (1<<CS10);
     /* Set TOP value */
     uint8_t sreg = SREG;
     cli();
-    OCR3AH = (SOFTPWM_LED_TIMER_TOP >> 8) & 0xFF;
-    OCR3AL = SOFTPWM_LED_TIMER_TOP & 0xFF;
+    OCR1AH = (SOFTPWM_LED_TIMER_TOP >> 8) & 0xff;
+    OCR1AL = SOFTPWM_LED_TIMER_TOP & 0xff;
     SREG = sreg;
 
-    // Enable the compare match interrupt on timer 3
-    TIMSK3 |= _BV(OCIE3A);
+    // Enable the compare match interrupt on timer 1
+    TIMSK1 |= (1<<OCIE1A);
 }
 
 void rgb_init(void) {
-    DDRF  |= (_BV(PF6) | _BV(PF5) | _BV(PF4));
-    PORTF |= (_BV(PF6) | _BV(PF5) | _BV(PF4));
+    DDRF  |=  (1<<PF6 | 1<<PF5 | 1<<PF4);
+    PORTF |=  (1<<PF6 | 1<<PF5 | 1<<PF4);
 
     rgb_timer_init();
 }
 
 void set_rgb_pin_on(uint8_t pin) {
-	PORTF &= ~_BV(pin);
+	PORTF &= ~(1<<pin);
 }
 
 void set_rgb_pin_off(uint8_t pin) {
-	PORTF |= _BV(pin);
+	PORTF |= (1<<pin);
 }
 
 void rgblight_set(void) {
@@ -145,7 +151,7 @@ void rgblight_set(void) {
    //  //xprintf("Red: %u, Green: %u, Blue: %u\n", led[0].r, led[0].g, led[0].b);
 }
 
-ISR(TIMER3_COMPA_vect)
+ISR(TIMER1_COMPA_vect)
 {
     static uint8_t pwm = 0;
     pwm++;
@@ -185,4 +191,4 @@ ISR(TIMER3_COMPA_vect)
     	softpwm_buff[2] = led[0].b;
   	}
 }
-#endif // RGBLIGHT_ENABLE
+#endif // V60_POLESTAR

@@ -17,9 +17,15 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef KEYMAP_COMMON_H
+#define KEYMAP_COMMON_H
 
 #include "quantum.h"
+#include "quantum_keycodes.h"
+#include "keycode.h"
+#include "action.h"
+
+void matrix_init_user(void);
 
 #define LAYOUT_ortho_5x12( \
     K011, K010, K009, K008, K004, K005, K006, K007, K003, K002, K201, K000, \
@@ -36,3 +42,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 #define LAYOUT LAYOUT_ortho_5x12
+
+#endif

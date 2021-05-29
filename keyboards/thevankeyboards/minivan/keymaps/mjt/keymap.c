@@ -20,9 +20,9 @@ enum planck_keycodes {
   DYNAMIC_MACRO_RANGE,
 };
 
-#define FKEYS LT(_FKEYS, KC_TAB)
+#define FKEYS F(_FKEYS)
 #define NUMSYM TT(_NUMSYM)
-#define FKEYGRV LT(_FKEYS, KC_GRV)
+#define FKEYGRV F(_FKEYGRV)
 #define MACSLEEP M(5)
 #define PLOVER M(6)
 #define LAYERRESET M(7)
@@ -82,6 +82,11 @@ void persistant_default_layer_set(uint16_t default_layer) {
   default_layer_set(default_layer);
 }
 
+const uint16_t PROGMEM fn_actions[] = {
+ [_FKEYS] = ACTION_LAYER_TAP_KEY(_FKEYS, KC_TAB),
+ [_FKEYGRV] = ACTION_LAYER_TAP_KEY(_FKEYS, KC_GRV),
+};
+
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
       switch(id) {
@@ -99,7 +104,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
               if (record->event.pressed) {
               #ifdef AUDIO_ENABLE
                 stop_all_notes();
-                PLAY_SONG(tone_plover);
+                PLAY_NOTE_ARRAY(tone_plover, false, 0);
               #endif
               layer_off(_NUMSYM);
               layer_off(_FKEYS);
@@ -110,7 +115,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         case 7: // LAYERRESET
               if (record->event.pressed) {
               #ifdef AUDIO_ENABLE
-                PLAY_SONG(tone_qwerty);
+                PLAY_NOTE_ARRAY(tone_qwerty, false, 0);
               #endif
               layer_off(_NUMSYM);
               layer_off(_FKEYS);
@@ -132,7 +137,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
           if(record->event.pressed) {
             #ifdef AUDIO_ENABLE
               stop_all_notes();
-              PLAY_SONG(tone_adjust);
+              PLAY_NOTE_ARRAY(tone_adjust, false, 0);
             #endif
             layer_off(_NUMSYM);
             layer_off(_FKEYS);
@@ -166,12 +171,12 @@ void matrix_init_user(void) {
 void startup_user()
 {
     _delay_ms(20); // gets rid of tick
-    PLAY_SONG(tone_startup);
+    PLAY_NOTE_ARRAY(tone_startup, false, 0);
 }
 
 void shutdown_user()
 {
-    PLAY_SONG(tone_goodbye);
+    PLAY_NOTE_ARRAY(tone_goodbye, false, 0);
     _delay_ms(150);
     stop_all_notes();
 }
@@ -183,6 +188,6 @@ void music_on_user(void)
 
 void music_scale_user(void)
 {
-    PLAY_SONG(music_scale);
+    PLAY_NOTE_ARRAY(music_scale, false, 0);
 }
 #endif

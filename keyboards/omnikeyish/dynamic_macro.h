@@ -71,6 +71,8 @@ typedef struct {
   uint16_t    checksum;
 } dynamic_macro_t;
 
+dynamic_macro_t dynamic_macros[DYNAMIC_MACRO_COUNT];
+
 void     dynamic_macro_init(void);
 void     dynamic_macro_led_blink(void);
 void     dynamic_macro_record_start(uint8_t macro_id);

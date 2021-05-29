@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 
+extern keymap_config_t keymap_config;
 
 #define BASE 0
 #define META 1
@@ -63,3 +64,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 
 };
+

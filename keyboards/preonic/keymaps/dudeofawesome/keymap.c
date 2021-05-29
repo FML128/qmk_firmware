@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |  Del |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  |   Q  |   D  |   R  |   W  |   B  |   J  |   F  |   U  |   P  |   ;  | Bksp |
+ * | Tab  |   Q  |   W  |   R  |   W  |   B  |   J  |   F  |   U  |   P  |   ;  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Esc  |   A  |   S  |   H  |   T  |   G  |   Y  |   N  |   E  |   O  |   I  |   '  |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -256,14 +256,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #ifdef BACKLIGHT_ENABLE
           backlight_step();
         #endif
-        #ifdef __AVR__
-          writePinLow(E6);
-        #endif
+        PORTE &= ~(1<<6);
       } else {
         unregister_code(KC_RSFT);
-        #ifdef __AVR__
-          writePinHigh(E6);
-        #endif
+        PORTE |= (1<<6);
       }
       return false;
   }

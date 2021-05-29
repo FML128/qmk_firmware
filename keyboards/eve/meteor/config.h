@@ -19,9 +19,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
-#define VENDOR_ID       0x4556 // "EV"
-#define PRODUCT_ID      0x4D54 // "MT"
-#define DEVICE_VER      0x0200
+#define VENDOR_ID       0x20A0
+#define PRODUCT_ID      0x422D
 #define MANUFACTURER    EVE
 #define PRODUCT         Meteor
 
@@ -36,7 +35,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DIODE_DIRECTION COL2ROW
 #define DEBOUNCE 5
 
-#define LED_CAPS_LOCK_PIN D1
-
-#define BACKLIGHT_PIN D4
-#define BACKLIGHT_LEVELS 3
+#define BACKLIGHT_LEVELS 1

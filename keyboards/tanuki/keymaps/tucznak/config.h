@@ -2,9 +2,11 @@
 
 #undef MANUFACTURER
 #undef PRODUCT
+#undef DESCRIPTION
 
 #define MANUFACTURER    Potato Inc.
 #define PRODUCT         Trash Panda
+#define DESCRIPTION     Qt3.14 smolkeeb
 
 /* for bootloader */
 #define QMK_ESC_OUTPUT B2

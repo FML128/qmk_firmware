@@ -1,4 +1,7 @@
-#pragma once
+#ifndef KEYBOARDS_ERGODOX_CONFIG_H_
+#define KEYBOARDS_ERGODOX_CONFIG_H_
+
+#include QMK_KEYBOARD_CONFIG_H
 
 #undef MOUSEKEY_DELAY
 #undef MOUSEKEY_INTERVAL
@@ -28,3 +31,5 @@
     get_mods() == (MOD_BIT(KC_LCTL) | MOD_BIT(KC_RCTL)) || \
     get_mods() == (MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT)) \
 )
+
+#endif /* KEYBOARDS_ERGODOX_CONFIG_H_ */

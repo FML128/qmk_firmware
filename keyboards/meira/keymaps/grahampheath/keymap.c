@@ -204,6 +204,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+  // MACRODOWN only works in this function
+      switch(id) {
+        case 0:
+          if (record->event.pressed) {
+            register_code(KC_RSFT);
+          } else {
+            unregister_code(KC_RSFT);
+          }
+        break;
+      }
+    return MACRO_NONE;
+};
+
 #ifdef AUDIO_ENABLE
 
   float tone_qwerty[][2]     = SONG(QWERTY_SOUND);
@@ -215,12 +230,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   float plover_gb_song[][2]  = SONG(PLOVER_GOODBYE_SOUND);
 #endif
 
+void matrix_init_user(void) {
+
+}
+
+void matrix_scan_user(void) {
+
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_qwerty);
+          PLAY_NOTE_ARRAY(tone_qwerty, false, 0);
         #endif
       }
       return false;
@@ -228,7 +251,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case COLEMAK:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_colemak);
+          PLAY_NOTE_ARRAY(tone_colemak, false, 0);
         #endif
       }
       return false;
@@ -236,7 +259,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DVORAK:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_dvorak);
+          PLAY_NOTE_ARRAY(tone_dvorak, false, 0);
         #endif
       }
       return false;

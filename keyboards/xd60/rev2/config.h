@@ -15,16 +15,18 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef CONFIG_H
+#define CONFIG_H
 
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x7844   // "XD"
+#define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x6060
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    XIUDI
 #define PRODUCT         XD60v2
+#define DESCRIPTION     XD60 v2 Keyboard PCB by XIUDI
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -47,7 +49,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 /* Backlight Setup */
 #define BACKLIGHT_PIN F5
 #define BACKLIGHT_LEVELS 6
-#define BACKLIGHT_ON_STATE 0
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
@@ -69,3 +70,5 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
+
+#endif

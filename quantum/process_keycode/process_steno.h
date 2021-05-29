@@ -13,10 +13,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-#pragma once
+#ifndef PROCESS_STENO_H
+#define PROCESS_STENO_H
 
 #include "quantum.h"
+
+#if defined(STENO_ENABLE) && !defined(VIRTSER_ENABLE)
+#    error "must have virtser enabled to use steno"
+#endif
 
 typedef enum { STENO_MODE_BOLT, STENO_MODE_GEMINI } steno_mode_t;
 
@@ -25,3 +29,5 @@ void     steno_init(void);
 void     steno_set_mode(steno_mode_t mode);
 uint8_t *steno_get_state(void);
 uint8_t *steno_get_chord(void);
+
+#endif

@@ -31,9 +31,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "timer.h"
 #include "i2c_slave.h"
 #include "lufa.h"
-#include "quantum.h"
 
-#define SLAVE_I2C_ADDRESS 0x32
+#define SLAVE_I2C_ADDRESS 0x19
 
 /* Set 0 if debouncing isn't needed */
 
@@ -197,10 +196,12 @@ uint8_t matrix_scan(void)
         }
 #   endif
 
-    i2c_slave_reg[1] = 0x55;
-    for (uint8_t i = 0; i < MATRIX_ROWS; i++){
-        i2c_slave_reg[i+2] = matrix[i]; //send matrix over i2c
-    }
+        if (USB_DeviceState != DEVICE_STATE_Configured){
+            i2c_slave_reg[1] = 0x55;
+            for (uint8_t i = 0; i < MATRIX_ROWS; i++){
+                i2c_slave_reg[i+2] = matrix[i]; //send matrix over i2c
+            }
+        }
 
     matrix_scan_quantum();
     return 1;
@@ -237,7 +238,7 @@ void matrix_print(void)
     print_matrix_header();
 
     for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
+        phex(row); print(": ");
         print_matrix_row(row);
         print("\n");
     }
@@ -395,6 +396,9 @@ static void unselect_cols(void)
 
 //this replases tmk code
 void matrix_setup(void){
-    i2c_slave_init(SLAVE_I2C_ADDRESS); //setup address of slave i2c
-    sei(); //enable interupts
+
+    if (USB_DeviceState != DEVICE_STATE_Configured){
+        i2c_slave_init(SLAVE_I2C_ADDRESS); //setup address of slave i2c
+        sei(); //enable interupts
+    }
 }

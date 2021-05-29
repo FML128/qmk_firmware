@@ -1,14 +1,12 @@
 # MCU name
 MCU = atmega32u4
 
-# Bootloader selection
-#   Teensy       halfkay
-#   Pro Micro    caterina
-#   Atmel DFU    atmel-dfu
-#   LUFA DFU     lufa-dfu
-#   QMK DFU      qmk-dfu
-#   ATmega32A    bootloadHID
-#   ATmega328P   USBasp
+# Boot Section Size in *bytes*
+#   Teensy halfKay   512
+#   Teensy++ halfKay 1024
+#   Atmel DFU loader 4096
+#   LUFA bootloader  4096
+#   USBaspLoader     2048
 BOOTLOADER = atmel-dfu
 
 # Build Options
@@ -34,7 +32,3 @@ SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
 
 LAYOUTS = ortho_4x12 planck_mit
 LAYOUTS_HAS_RGB = no
-
-# Disable unsupported hardware
-AUDIO_SUPPORTED = no
-BACKLIGHT_SUPPORTED = no

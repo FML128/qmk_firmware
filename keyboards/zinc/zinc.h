@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ZINC_H
+#define ZINC_H
 
 #ifdef KEYBOARD_zinc_reva
     #include "reva.h"
@@ -7,4 +8,7 @@
     #include "rev1.h"
 #endif
 
+
 #include "quantum.h"
+
+#endif

@@ -1,8 +1,17 @@
-#pragma once
+#ifndef REV1_H
+#define REV1_H
 
 #include "fortitude60.h"
 
 #include "quantum.h"
+
+#ifdef USE_I2C
+#include <stddef.h>
+#ifdef __AVR__
+  #include <avr/io.h>
+  #include <avr/interrupt.h>
+#endif
+#endif
 
 // Standard Keymap
 // (TRRS jack on the left half is to the right, TRRS jack on the right half is to the left)
@@ -25,3 +34,5 @@
     { R35, R34, R33, R32, R31, R30 }, \
     { RT0, RT1, RT2, RT3, RT4, RT5 } \
   }
+
+#endif

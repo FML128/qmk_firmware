@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0100
 #define MANUFACTURER    QMK
 #define PRODUCT         IBM Terminal Keyboard
+#define DESCRIPTION     USB converter for IBM Terminal Keyboard
 
 
 /* matrix size */

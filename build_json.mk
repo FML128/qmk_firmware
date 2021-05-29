@@ -21,11 +21,7 @@ else ifneq ("$(wildcard $(MAIN_KEYMAP_PATH_1)/keymap.json)","")
     KEYMAP_PATH := $(MAIN_KEYMAP_PATH_1)
 endif
 
-# Load the keymap-level rules.mk if exists
-ifneq ("$(wildcard $(KEYMAP_PATH))", "")
-    -include $(KEYMAP_PATH)/rules.mk
-endif
-
 # Generate the keymap.c
-$(KEYBOARD_OUTPUT)/src/keymap.c: $(KEYMAP_JSON)
-	bin/qmk json2c --quiet --output $(KEYMAP_C) $(KEYMAP_JSON)
+ifneq ("$(KEYMAP_JSON)","")
+    _ = $(shell test -e $(KEYMAP_C) || bin/qmk json-keymap $(KEYMAP_JSON) -o $(KEYMAP_C))
+endif

@@ -24,15 +24,15 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* Dvorak
+/* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * |  '   |   ,  |   .  |   P  |   Y  | Tab  | Bksp |   F  |   G  |   C  |   R  |   L  |
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |   A  |   O  |   E  |   U  |   I  | Enter| Enter|   D  |   H  |   T  |   N  |   S  |
+ * | Func |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  | Enter|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |   ;  |   Q  |   J  |   K  |   X  | Shift| Shift|   B  |   M  |   W  |   V  |   Z  |
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |  '   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | GUI  | Alt  | Shift|Space |Lower |Raise |Space | Left | Down |  Up  |Right |
+ * | Ctrl |  `   | GUI  | Alt  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_DVORAK] = LAYOUT( \

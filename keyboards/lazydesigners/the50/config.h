@@ -3,11 +3,12 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x4C44 // "LD"
+#define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x0050
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    LazyDesigners
 #define PRODUCT         THE50
+#define DESCRIPTION     A 50% keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 4

@@ -3,7 +3,6 @@
 
 #include "../../config.h"
 
-#undef WORKMAN_SOUND
 #define WORKMAN_SOUND COLEMAK_SOUND
 
 #ifdef AUDIO_ENABLE
@@ -21,6 +20,9 @@
 /*
  * MIDI options
  */
+
+/* Prevent use of disabled MIDI features in the keymap */
+//#define MIDI_ENABLE_STRICT 1
 
 /* enable basic MIDI features:
    - MIDI notes can be sent when in Music mode is on

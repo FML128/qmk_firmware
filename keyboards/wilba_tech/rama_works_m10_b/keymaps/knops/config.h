@@ -19,7 +19,6 @@
 
 #include "../../config.h"
 
-#undef VIA_ENABLE
 #undef RAW_ENABLE
 #undef DYNAMIC_KEYMAP_ENABLE
 

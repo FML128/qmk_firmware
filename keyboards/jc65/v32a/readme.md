@@ -1,25 +1,32 @@
-# JC65
+JC65 ps2avrGB
+=======
 
 ![JC65](https://i.imgur.com/9cJ9UbX.jpg)
 
 A 65% keyboard with RGB
 
+Keyboard Maintainer: [Jason Barnachea](https://github.com/nautxx)  
+
+Hardware Supported: JC65 rev.ps2avrgb  
+
+Hardware Availability: [keyclack.com](https://keyclack.com/)  
+
 The JC65 PCB actually has two revisions: A QMK native version, and a PS2AVRGB version. Jchan offered both PCBs as options during the M65-A Round 1 group buy, and were also available choices for the 65% acrylic case group buy.
 
-These docs are for the PS2AVRGB version of the PCB. More info on qmk.fm
+Please note that there have been issues with QMK and PS2AVRGB boards. Random shutdowns and overheating have been reported. As of now, the cause has not been discovered. 
 
-* Keyboard Maintainer: [Jason Barnachea](https://github.com/nautxx)  
-* Hardware Supported: JC65 rev.ps2avrgb  
-* Hardware Availability: [keyclack.com](https://keyclack.com/) 
+These docs are for the PS2AVRGB version of the PCB. More info on qmk.fm
 
 Make example for this keyboard (after setting up your build environment):
 
     make jc65/v32a:default
+    
+Flash example for this keyboard:
 
-Flashing example for this keyboard ([after setting up the bootloadHID flashing environment](https://docs.qmk.fm/#/flashing_bootloadhid))
+    bootloadHID -r jc65_v32a_default.hex
 
-    make jc65/v32a:default:flash
+Flashing on Windows can be accomplished by downloading [HIDBootFlash](http://vusb.wikidot.com/project:hidbootflash)
 
-**Reset Key**: Hold down the key commonly programmed as *left control* while plugging in the keyboard.
+To put the PS2AVRGB board into reset, hold down the left control key while plugging in the keyboard. 
 
-See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
+See [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) then the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information.

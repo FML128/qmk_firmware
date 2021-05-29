@@ -1,8 +1,6 @@
 # Noxary 220
 
-![Noxary 220](https://i.imgur.com/8XCxJhP.png)
-
-A fully customizable (4x6) numpad keyboard.
+A fully customizable numpad
 
 Keyboard Maintainer: [MechMerlin](https://github.com/mechmerlin), [Rozakiin](https://github.com/rozakiin)    
 Hardware Supported: Noxary 220 PCB  

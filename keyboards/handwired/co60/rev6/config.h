@@ -24,6 +24,7 @@
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    John M Daly
 #define PRODUCT         CO60 rev6
+#define DESCRIPTION     An open hardware sixty percent PCB
 
 /* Address for jumping to bootloader on STM32 chips. */
 /* It is chip dependent, the correct number can be looked up here:
@@ -40,7 +41,7 @@
 #define MATRIX_ROW_PINS { B0, B1, B2, A15, A10 }
 #define MATRIX_COL_PINS { A2, A3, A6, B14, B15, A8, A9, A7, B3, B4, C14, C15, C13, B5, B6 }
 
-/* COL2ROW, ROW2COL */
+/* COL2ROW, ROW2COL, or CUSTOM_MATRIX */
 #define DIODE_DIRECTION COL2ROW
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
@@ -54,5 +55,6 @@
 /* Backlight configuration
  * Backlight LEDs on B8
  */
-#define BACKLIGHT_PIN B8
+#define BACKLIGHT_LEVELS 24
 #define BACKLIGHT_BREATHING
+#define BREATHING_PERIOD 6

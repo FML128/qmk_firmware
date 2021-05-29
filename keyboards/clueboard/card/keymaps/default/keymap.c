@@ -38,7 +38,6 @@ void matrix_scan_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-#ifdef AUDIO_ENABLE
     case SONG_SU:
       if (record->event.pressed) {
         PLAY_SONG(tone_startup);
@@ -59,7 +58,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
 
       return false;
-#endif
+
     default:
       return true;
   }

@@ -1,6 +1,23 @@
-#pragma once
+#ifndef LFKPAD_H
+#define LFKPAD_H
+
+/* if the kb.h file exists (because we're running from qmkbuilder) include it */
+#if __has_include("kb.h")
+#include "kb.h"
+#endif
 
 #include "quantum.h"
+#include "matrix.h"
+#include <avr/sfr_defs.h>
+
+#ifndef cbi
+#define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
+#endif
+
+#ifndef sbi
+#define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
+#endif
+
 
 typedef struct RGB_Color {
     uint16_t red;
@@ -40,6 +57,7 @@ void click(uint16_t freq, uint16_t duration);
 // readability
 #define ___ KC_NO
 
+
 #define LAYOUT_numpad_6x4( \
     k00, k01, k02, k03, \
     k10, k11, k12, k13, \
@@ -55,3 +73,5 @@ void click(uint16_t freq, uint16_t duration);
     { k40, k41, k42, k43 }, \
     { k50, ___, k52, ___ } \
 }
+
+#endif //LFKPAD_H

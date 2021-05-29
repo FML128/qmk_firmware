@@ -9,6 +9,7 @@
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    MECHKEYS
 #define PRODUCT         ACR60
+#define DESCRIPTION     60% customizable keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 5

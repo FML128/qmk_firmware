@@ -14,7 +14,6 @@ enum alt_keycodes {
   L_OFF,              //LED Off
   L_T_BR,             //LED Toggle Breath Effect
   L_T_PTD,            //LED Toggle Scrolling Pattern Direction
-  U_T_AUTO,           //USB Extra Port Toggle Auto Detect / Always Active
   U_T_AGCR,           //USB Toggle Automatic GCR control
   DBG_TOG,            //DEBUG Toggle On / Off
   DBG_MTRX,           //DEBUG Toggle Matrix Prints
@@ -26,6 +25,8 @@ enum alt_keycodes {
 #define TG_NKRO MAGIC_TOGGLE_NKRO //Toggle 6KRO / NKRO mode
 #define ______ KC_TRNS
 
+keymap_config_t keymap_config;
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_DEL,  \
@@ -36,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT(
     KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_MUTE, \
-    _______, _______, _______,  KC_UP,  _______, _______, _______, U_T_AUTO,U_T_AGCR,_______, KC_PSCR, KC_SLCK, KC_PAUS, _______, KC_END, \
+    _______, _______, _______,  KC_UP,  _______, _______, _______, _______, U_T_AGCR,_______, KC_PSCR, KC_SLCK, KC_PAUS, _______, KC_END, \
     _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, _______, _______, _______,          _______, _______, \
     _______, _______, _______, _______, _______, MD_BOOT, TG_NKRO, _______, _______, _______, _______, _______,          KC_VOLU, _______, \
     _______, _______, _______,                            KC_MPLY,                              MO(2), _______, KC_MRWD, KC_VOLD, KC_MFFD  \
@@ -48,10 +49,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, L_T_MD,  L_T_ONF, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______, \
     _______, _______, _______,                            _______,                            _______, _______, _______, _______, _______  \
   ),
-};
-
-// Runs just one time when the keyboard initializes.
-void matrix_init_user(void) {
 };
 
 // Runs constantly in the background, in a loop.
@@ -113,20 +110,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case L_T_ONF:
       if (record->event.pressed) {
-        led_enabled = !led_enabled;
-        I2C3733_Control_Set(led_enabled);
+        I2C3733_Control_Set(!I2C3733_Control_Get());
       }
       return false;
     case L_ON:
       if (record->event.pressed) {
-        led_enabled = 1;
-        I2C3733_Control_Set(led_enabled);
+        I2C3733_Control_Set(1);
       }
       return false;
     case L_OFF:
       if (record->event.pressed) {
-        led_enabled = 0;
-        I2C3733_Control_Set(led_enabled);
+        I2C3733_Control_Set(0);
       }
       return false;
     case L_T_BR:
@@ -142,11 +136,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case L_T_PTD:
       if (record->event.pressed) {
         led_animation_direction = !led_animation_direction;
-      }
-      return false;
-    case U_T_AUTO:
-      if (record->event.pressed && MODS_SHIFT && MODS_CTRL) {
-        TOGGLE_FLAG_AND_PRINT(usb_extra_manual, "USB extra port manual mode");
       }
       return false;
     case U_T_AGCR:

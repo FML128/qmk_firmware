@@ -1,14 +1,10 @@
-# MCU name
 MCU = atmega32u4
+F_CPU = 16000000
+ARCH = AVR8
+F_USB = $(F_CPU)
 
-# Bootloader selection
-#   Teensy       halfkay
-#   Pro Micro    caterina
-#   Atmel DFU    atmel-dfu
-#   LUFA DFU     lufa-dfu
-#   QMK DFU      qmk-dfu
-#   ATmega32A    bootloadHID
-#   ATmega328P   USBasp
+OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
+
 BOOTLOADER = atmel-dfu
 
 NKRO_ENABLE = yes

@@ -1,6 +1,8 @@
 # MCU name
 MCU = atmega32u4
 
+
+
 # Bootloader selection
 #   Teensy       halfkay
 #   Pro Micro    caterina
@@ -11,13 +13,15 @@ MCU = atmega32u4
 #   ATmega328P   USBasp
 BOOTLOADER = atmel-dfu
 
+
+
 # Build Options
 #   change yes to no to disable
 #
-BOOTMAGIC_ENABLE = lite      # Virtual DIP switch configuration
-MOUSEKEY_ENABLE = yes       # Mouse keys
-EXTRAKEY_ENABLE = yes       # Audio control and System control
-CONSOLE_ENABLE = yes        # Console for debug
+BOOTMAGIC_ENABLE = lite      # Virtual DIP switch configuration(+1000)
+MOUSEKEY_ENABLE = yes       # Mouse keys(+4700)
+EXTRAKEY_ENABLE = yes       # Audio control and System control(+450)
+CONSOLE_ENABLE = yes        # Console for debug(+400)
 COMMAND_ENABLE = yes        # Commands for debug and configuration
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
@@ -25,9 +29,9 @@ SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
 NKRO_ENABLE = yes            # USB Nkey Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality on B7 by default
 RGBLIGHT_ENABLE = yes        # Enable keyboard RGB underglow
-MIDI_ENABLE = no            # MIDI support
+MIDI_ENABLE = no            # MIDI support (+2400 to 4200, depending on config)
 UNICODE_ENABLE = no         # Unicode
 BLUETOOTH_ENABLE = no       # Enable Bluetooth with the Adafruit EZ-Key HID
 AUDIO_ENABLE = no           # Audio output on port C6
-
-LAYOUTS = alice alice_split_bs
+FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
+HD44780_ENABLE = no 		# Enable support for HD44780 based LCDs (+400)

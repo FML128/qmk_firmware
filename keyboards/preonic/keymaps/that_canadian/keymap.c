@@ -161,7 +161,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case QWERTY:
           if (record->event.pressed) {
             #ifdef AUDIO_ENABLE
-              PLAY_SONG(tone_qwerty);
+              PLAY_NOTE_ARRAY(tone_qwerty, false, 0);
             #endif
             persistant_default_layer_set(1UL<<_QWERTY);
           }
@@ -213,12 +213,12 @@ void matrix_init_user(void) {
 void startup_user()
 {
     _delay_ms(20); // gets rid of tick
-    PLAY_SONG(tone_startup);
+    PLAY_NOTE_ARRAY(tone_startup, false, 0);
 }
 
 void shutdown_user()
 {
-    PLAY_SONG(tone_goodbye);
+    PLAY_NOTE_ARRAY(tone_goodbye, false, 0);
     _delay_ms(150);
     stop_all_notes();
 }
@@ -230,7 +230,7 @@ void music_on_user(void)
 
 void music_scale_user(void)
 {
-    PLAY_SONG(music_scale);
+    PLAY_NOTE_ARRAY(music_scale, false, 0);
 }
 
 #endif

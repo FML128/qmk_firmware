@@ -1,5 +1,9 @@
 #include "mitosis.h"
 
+void uart_init(void) {
+	SERIAL_UART_INIT();
+}
+
 void led_init(void) {
 	DDRD  |= (1<<1); // Pin to green, set as output
 	PORTD |= (1<<1); // Turn it off
@@ -11,6 +15,7 @@ void matrix_init_kb(void) {
 	// put your keyboard start-up code here
 	// runs once when the firmware starts up
 	matrix_init_user();
+	uart_init();
 	led_init();
 }
 

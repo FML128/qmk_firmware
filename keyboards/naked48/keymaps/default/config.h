@@ -26,3 +26,5 @@
 
 #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 180
+
+#define RGBLED_NUM 48    // Number of LEDs

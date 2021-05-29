@@ -9,6 +9,7 @@
 #define DEVICE_VER      0x0003
 #define MANUFACTURER    SATAN
 #define PRODUCT         GH60
+#define DESCRIPTION     QMK keyboard firmware for Satan GH60 with WS2812 support
 
 /* key matrix size */
 #define MATRIX_ROWS 5

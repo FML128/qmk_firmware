@@ -116,6 +116,8 @@ void matrix_init(void)
     init_rows();
 //    init_lcols();
 
+//    TX_RX_LED_INIT;
+
     // initialize matrix state: all keys off
     for (uint8_t i=0; i < MATRIX_ROWS; i++) {
         matrix[i] = 0;
@@ -183,8 +185,8 @@ void matrix_print(void)
 {
     print("\nr/c 0123456789ABCDEF\n");
     for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
+        phex(row); print(": ");
+        pbin_reverse16(matrix_get_row(row));
         print("\n");
     }
 }

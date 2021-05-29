@@ -29,8 +29,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "util.h"
 #include "matrix.h"
 #include "split_util.h"
+#include "pro_micro.h"
 #include "config.h"
-#include "quantum.h"
 
 #ifdef USE_MATRIX_I2C
 #  include "i2c.h"
@@ -100,8 +100,7 @@ void matrix_init(void)
     unselect_rows();
     init_cols();
 
-    setPinOutput(B0);
-    setPinOutput(D5);
+    TX_RX_LED_INIT;
 
     // initialize matrix state: all keys off
     for (uint8_t i=0; i < MATRIX_ROWS; i++) {
@@ -202,7 +201,7 @@ uint8_t matrix_scan(void)
     if( serial_transaction() ) {
 #endif
         // turn on the indicator led when halves are disconnected
-        writePinLow(D5);
+        TXLED1;
 
         error_count++;
 
@@ -215,7 +214,7 @@ uint8_t matrix_scan(void)
         }
     } else {
         // turn off the indicator led on no error
-        writePinHigh(D5);
+        TXLED0;
         error_count = 0;
     }
     matrix_scan_quantum();
@@ -261,8 +260,8 @@ void matrix_print(void)
 {
     print("\nr/c 0123456789ABCDEF\n");
     for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_bin_reverse16(matrix_get_row(row));
+        phex(row); print(": ");
+        pbin_reverse16(matrix_get_row(row));
         print("\n");
     }
 }

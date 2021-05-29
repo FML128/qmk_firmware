@@ -3,11 +3,12 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x5457  // "TW"
+#define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x6060
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Barry
 #define PRODUCT         CA66
+#define DESCRIPTION     CA66
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -20,8 +21,6 @@
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
-
-#define LED_CAPS_LOCK_PIN D1
 
 /* number of backlight levels */
 

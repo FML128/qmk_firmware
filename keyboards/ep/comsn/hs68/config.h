@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER 0x0001
 #define MANUFACTURER Elliot Powell
 #define PRODUCT ephs68
+#define DESCRIPTION     A Hotswapable keyboard for kayak
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -46,7 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   { B0, B1, B3, B2, B7, D3, F1, D5, D6, D7, F4, F5, C7, C6, F0 }
 #define UNUSED_PINS
 
-/* COL2ROW, ROW2COL */
+/* COL2ROW, ROW2COL, or CUSTOM_MATRIX */
 #define DIODE_DIRECTION COL2ROW
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */

@@ -1,3 +1,3 @@
-# Revision Specific Build Options
-#   change yes to no to disable
-#
+SRC += rev1/matrix.c
+SRC += rev1/split_util.c
+SRC += rev1/split_scomm.c

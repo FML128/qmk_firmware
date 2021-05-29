@@ -1,12 +1,9 @@
 #pragma once
 
 #if defined(RGB_MATRIX_ENABLE)
-#    include "rgb_matrix.h"
+#include "rgb_matrix.h"
 #elif defined(RGBLIGHT_ENABLE)
-#    if !defined(__AVR__)
-#        define PROGMEM
-#    endif
-#    include "rgblight.h"
+#include "rgblight.h"
 #endif
 
 #ifdef RGB_MATRIX_ENABLE

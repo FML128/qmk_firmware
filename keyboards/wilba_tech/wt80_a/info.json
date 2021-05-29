@@ -2,6 +2,7 @@
     "keyboard_name": "wilba.tech WT80-A", 
     "url": "https://wilba.tech", 
     "maintainer": "Wilba", 
+    "bootloader": "atmel-dfu", 
     "width": 18.25, 
     "height": 6.5, 
     "layouts": {

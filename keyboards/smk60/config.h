@@ -12,6 +12,7 @@
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    astro
 #define PRODUCT         smk 60
+#define DESCRIPTION     60% keyboard for smk switch
 
 /* key matrix size */
 #define MATRIX_ROWS 5

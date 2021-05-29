@@ -18,9 +18,6 @@
 
 #include "config_common.h"
 
-// use I2C on AVR
-#define USE_I2C
-
 // wiring of each half
 #define MATRIX_ROW_PINS { B3 }
 #define MATRIX_COL_PINS { B6 }

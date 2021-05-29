@@ -1,4 +1,7 @@
-#pragma once
+#ifndef CONFIG_ALGERNON_H
+#define CONFIG_ALGERNON_H
+
+#include QMK_KEYBOARD_CONFIG_H
 
 #undef MOUSEKEY_TIME_TO_MAX
 #undef MOUSEKEY_MAX_SPEED
@@ -20,3 +23,5 @@
 
 #undef LEADER_TIMEOUT
 #define LEADER_TIMEOUT 1000
+
+#endif

@@ -16,11 +16,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x04D8
-#define PRODUCT_ID      0xECE9
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x0000
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    hineybush keyboards
+#define MANUFACTURER    hineybush
 #define PRODUCT         h87a
+#define DESCRIPTION     QMK-programmable TKL PCB for custom keyboards
 
 #define CONFIG_H
 
@@ -71,6 +72,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
-#define RGBLIGHT_LIMIT_VAL 200
 #define RGBLIGHT_SLEEP // RGB will turn off when PC is put to sleep
 #endif

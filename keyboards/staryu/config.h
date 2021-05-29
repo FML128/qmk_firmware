@@ -24,6 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0205
 #define MANUFACTURER    K.T.E.C.
 #define PRODUCT         Staryu
+#define DESCRIPTION     5-key macropad
 
 /* key matrix size */
 #define MATRIX_ROWS 2
@@ -64,6 +65,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BACKLIGHT_PINS { C2, C7, D5, D6, B0 }
 #define BACKLIGHT_LED_COUNT 5
 #define BACKLIGHT_LEVELS 10
+#define BACKLIGHT_ON_STATE 1
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
