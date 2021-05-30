@@ -49,7 +49,7 @@ void matrix_init_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         #ifdef RGB_MATRIX_ENABLE
-            if (led_on == false) {
+            if (!led_on) {
                 rgblight_enable_noeeprom();
                 led_on = true;
             }
