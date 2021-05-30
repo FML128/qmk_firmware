@@ -238,6 +238,41 @@ void USB_configure(void) {
 
 uint16_t USB_active(void) { return (PORT->Group[USB2422_HUB_ACTIVE_GROUP].IN.reg & (1 << USB2422_HUB_ACTIVE_PIN)) != 0; }
 
+void USB_set_host_by_port_num(uint8_t port) {
+    if (port == 1) {
+        sr_exp_data.bit.S_UP  = 0;  // HOST to USBC-1
+        sr_exp_data.bit.S_DN1 = 1;  // EXTRA to USBC-2
+        sr_exp_data.bit.SRC_1 = 1;  // HOST on USBC-1
+        sr_exp_data.bit.SRC_2 = 0;  // EXTRA available on USBC-2
+
+        sr_exp_data.bit.E_VBUS_1 = 1;  // USBC-1 enable full power I/O
+        sr_exp_data.bit.E_VBUS_2 = 0;  // USBC-2 disable full power I/O
+
+        SR_EXP_WriteData();
+
+        usb_host_port = USB_HOST_PORT_1;
+    } else {
+        sr_exp_data.bit.S_UP  = 1;  // EXTRA to USBC-1
+        sr_exp_data.bit.S_DN1 = 0;  // HOST to USBC-2
+        sr_exp_data.bit.SRC_1 = 0;  // EXTRA available on USBC-1
+        sr_exp_data.bit.SRC_2 = 1;  // HOST on USBC-2
+
+        sr_exp_data.bit.E_VBUS_1 = 0;  // USBC-1 disable full power I/O
+        sr_exp_data.bit.E_VBUS_2 = 1;  // USBC-2 enable full power I/O
+
+        SR_EXP_WriteData();
+
+        usb_host_port = USB_HOST_PORT_2;
+    }
+
+#ifndef MD_BOOTLOADER
+    usb_extra_state = USB_EXTRA_STATE_DISABLED;
+#endif  // MD_BOOTLOADER
+
+    USB_reset();
+    USB_configure();
+}
+
 void USB_set_host_by_voltage(void) {
     // UP is upstream device (HOST)
     // DN1 is downstream device (EXTRA)

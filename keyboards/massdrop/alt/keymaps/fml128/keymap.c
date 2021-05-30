@@ -1,5 +1,9 @@
 #include QMK_KEYBOARD_H
 
+enum alt_keycodes {
+    SWITCH_USB = SAFE_RANGE,
+};
+
 #ifdef RGB_MATRIX_ENABLE
     static uint32_t idle_timer;
     static bool led_on = true;
@@ -15,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [1] = LAYOUT_65_ansi_blocker(
         KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______, \
-        _______, _______, _______, _______, _______, _______, _______, _______,_______,_______, _______, _______, _______, _______, _______, \
+        SWITCH_USB, _______, _______, _______, _______, _______, _______, _______,_______,_______, _______, _______, _______, _______, _______, \
         RESET, _______,_______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______, \
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_PGUP, _______, \
         KC_RCTL, _______, _______,                            _______,                            _______, _______, _______, KC_PGDN, _______  \
@@ -31,11 +35,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     */
 };
 
+void switch_usb(void) {
+    if (usb_host_port == USB_HOST_PORT_2) {USB_set_host_by_port_num(1); }
+    else {USB_set_host_by_port_num(2); }
+}
+
 void matrix_init_user(void) {
     #ifdef RGB_MATRIX_ENABLE
         rgblight_sethsv(COLOR);
     #endif
-};
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
@@ -47,8 +56,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         idle_timer = timer_read();
         #endif
     }
-    return true;
+    switch (keycode) {
+        case SWITCH_USB:
+            switch_usb();
+            return false;
+        default:
+            return true; //Process all other keycodes normally
   }
+}
 
 void matrix_scan_user(void) {
     #ifdef RGB_MATRIX_ENABLE
